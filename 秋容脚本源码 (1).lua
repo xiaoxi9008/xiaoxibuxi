@@ -207,7 +207,7 @@ local function Popup_VerifyKuaishou()
     local done = false
     
     createButton(frame, "验证快手号", UDim2.new(0.45, 0, 0, 35), UDim2.new(0.1, 0, 0, 175), function()
-        if inputKuaishou.Text == "CN_QRNBYYDS" then
+        if inputKuaishou.Text == "xiaoxinb666" then
             done = true
             gui:Destroy()
         else
@@ -223,52 +223,7 @@ local function Popup_VerifyKuaishou()
     
     while not done do task.wait() end
 end
--- QQ群验证
-local function Popup_VerifyQQGroup()
-    local gui = createScreenGui("Popup_QQGroup")
-    local frame = createFrame(gui, UDim2.new(0, 420, 0, 260), UDim2.new(0.5, -210, 0.5, -130))
-    createLabel(frame, "主播现在还有没有QQ群？", UDim2.new(1, 0, 0, 35), UDim2.new(0, 0, 0, 25))
-    
-    local _, inputQQGroup = createClickToInput(
-        frame, UDim2.new(1, -50, 0, 45), UDim2.new(0, 25, 0, 75),
-        "点击输入答案", "请输入有或者没有"
-    )
-    
-    local statusLabel = createLabel(frame, "", UDim2.new(1, 0, 0, 25), UDim2.new(0, 0, 0, 135))
-    local exitCount = 0
-    local done = false
-    
-    createButton(frame, "确定回答", UDim2.new(0.45, 0, 0, 35), UDim2.new(0.1, 0, 0, 185), function()
-        statusLabel.Text = "你是废物吗？这都答不上来"
-        statusLabel.TextColor3 = Color3.fromRGB(255, 60, 60)
-    end)
-    
-    createButton(frame, "退出回答(进入脚本)", UDim2.new(0.45, 0, 0, 35), UDim2.new(0.5, 0, 0, 185), function()
-        exitCount += 1
-        if exitCount == 1 then
-            statusLabel.Text = "废物玩意儿确定退出吗？真废物这都答不上来😂"
-            statusLabel.TextColor3 = Color3.fromRGB(255, 220, 60)
-        elseif exitCount >= 2 then
-            done = true
-            gui:Destroy()
-        end
-    end)
-    
-    while not done do task.wait() end
-    
-    -- 最终提示
-    local notifyGui = createScreenGui("Popup_FinalNotice")
-    local notifyFrame = createFrame(notifyGui, UDim2.new(0, 340, 0, 120), UDim2.new(0.5, -170, 0.5, -60))
-    createLabel(notifyFrame, "确实没有QQ群🤓", UDim2.new(1, 0, 0, 35), UDim2.new(0, 0, 0, 45))
-    playTempSound("12222253")
-    task.wait(3)
-    notifyGui:Destroy()
-end
--- ================ 公告弹窗（公告文字缩小50%） ================
-local function showAnnouncement()
-    local noticeGui = createScreenGui("Popup_Announcement")
-    local noticeFrame = createFrame(noticeGui, UDim2.new(0, 400, 0, 250), UDim2.new(0.5, -200, 0.5, -125))
-    
+
     -- 标题（缩小50%：原22 → 11）
     local titleLabel = createBasicLabel(noticeFrame, "3.1汉化版 脚本公告", UDim2.new(1, 0, 0, 40), UDim2.new(0, 0, 0, 15))
     titleLabel.TextSize = 22 * 0.5  -- 仅公告标题缩小
@@ -2884,15 +2839,3 @@ end
     end
     return function() end
 end]]
---=====================================================
--- 玩家功能菜单内容
-local function create4Content(container)
-    if not container or not container:IsDescendantOf(game) then return function() end end
-    -- 功能按钮数据（含说明）
-    local buttons = {
-        {
-            name = "其他", 
-            url = "https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/SX%E4%BF%84%E4%BA%A5%E4%BF%84%E5%B7%9EV5%E6%BA%90%E7%A0%81(1).lua",
-            desc = "功能说明：\n- 双重功能：既能甩飞对手也能防止被甩飞\n- 内置自动连招系统，无需手动操作\n- 适配多数战斗场景，稳定性强\n- 作者实测推荐，兼容性高"
-        },
-        {
