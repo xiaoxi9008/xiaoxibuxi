@@ -25,12 +25,11 @@ local Window = WindUI:CreateWindow({
     User = {
         Enabled = true,
         Callback = function() 
-            print("clicked") 
         WindUI:Notify({
             Title = "点击了自己",
             Content = "没什么",
             Duration = 1,
-            Icon = "rbxassetid://4483362748"
+            Icon = "4483362748"
         })
         end,
         Anonymous = true
