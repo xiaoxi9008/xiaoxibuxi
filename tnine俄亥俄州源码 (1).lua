@@ -15,6 +15,36 @@ LocalPlayer.CharacterAdded:Connect(function(char)
     Humanoid = char:WaitForChild("Humanoid")
 end)
 
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "XIAOXI脚本",
+  Text = "以为你检测Ohio",
+  Icon = "rbxassetid://123691280552142",
+  Duration = 1,
+  Callback = bindable,
+  Button1 = "脚本功能多多",
+  Button2 = "谢谢您的使用",
+})
+wait(1.5)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "小西脚本",
+  Text = "小西脚本 本脚本为免费 倒卖了和作者无关 ",
+  Icon = "rbxassetid://123691280552142",
+  Duration = 1,
+  Callback = bindable,
+  Button1 = "进群获得免费卡密",
+  Button2 = "请勿倒卖",
+})
+wait(1.5)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "QQ：3574769415",
+  Text = "qq群：705378396",
+  Icon = "rbxassetid://123691280552142",
+  Duration = 2,
+  Callback = bindable,
+  Button1 = "祝您使用愉快",
+  Button2 = "玩的开心",
+})
+
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/454244513/WindUIFix/refs/heads/main/main.lua"))()
 local Window = WindUI:CreateWindow({
     Title = "XIAOXI",
