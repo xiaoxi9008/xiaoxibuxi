@@ -47,10 +47,15 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/454244513/WindUIFix/refs/heads/main/main.lua"))()
 local Window = WindUI:CreateWindow({
-    Title = "XIAOXI",
+    Title = "XIAOXI V4",
     Author = "by 小西/Karisob",
     Folder = "HackerHub",
     Size = UDim2.fromOffset(200, 395),
+    KeySystem = {
+        Key = { "Karisob", "小西nb", "宇星辰", "阵雨眉目" }, 
+        Note = "请输入卡密",
+        SaveKey = false,
+    },
     Transparent = true,
     Theme = "Dark",
     Background = "rbxassetid://90972943330073",
@@ -66,7 +71,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "免费用户",
+    Title = "XiaoXI V4",
     --Icon = "",
     CornerRadius = UDim.new(0,16),
     StrokeThickness = 2.35,
@@ -134,14 +139,14 @@ local skinsec = ""
 
 Tabs.BladeTab:Paragraph({
     Title = "使用须知",
-    Desc = "忍者飞镖光环需使用的时候 先将原来的忍者飞镖丢弃 然后再点击自动购买 再开启其余功能 即可使用",
+    Desc = "忍者飞镖光环需使用的时候 有点卡所以要等一会 再开启其余功能 即可使用",
     Image = "sword",
     ImageSize = 42,
 })
 
 Tabs.BladeTab:Paragraph({
     Title = "关于作者",
-    Desc = "此公益脚本来自messy 认准messy的一切公益项目  QQ群号717897412",
+    Desc = "协助者：Karisob  QQ群：705378396",
     Image = "sword",
     ImageSize = 42,
 })
