@@ -1,4 +1,4 @@
- local function safeNotify(title, text, duration)
+< local function safeNotify(title, text, duration)
      pcall(function()
          game:GetService("StarterGui"):SetCore("SendNotification", {
              Title = title,
@@ -24,9 +24,9 @@ elseif game.PlaceId == 79393329652220 then
      loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/XIAOXIBUXINB/refs/heads/main/%E9%98%B2%E5%BE%A1.lua"))() 
 else
 
-elseif game.PlaceId == 94101948530988 then
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/XIAOXIBUXINB/refs/heads/main/%E8%B5%9B%E9%A9%AC%E5%A8%98%E3%80%82.lua"))() 
-else
+ elseif game.PlaceId == 94101948530988 then
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/XIAOXIBUXINB/refs/heads/main/%E8%B5%9B%E9%A9%AC%E5%A8%98%E3%80%82.lua"))()
+ else
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/XIAOXIBUXINB/refs/heads/main/%E5%8A%A0%E8%BD%BD%E5%99%A8%E3%80%82.lua"))()---加载通用raw
 
 end---结束
