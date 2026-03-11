@@ -1,16 +1,3 @@
-< local function safeNotify(title, text, duration)
-     pcall(function()
-         game:GetService("StarterGui"):SetCore("SendNotification", {
-             Title = title,
-             Text = text,
-             Duration = duration or 1,
-             Button1 = "OK"
-         })
-     end)
- end
- safeNotify("正在执行XIAOXI", "正在启动脚本...", 1.5)
- wait(1.5)
- safeNotify("小西脚本", "正在检测服务器...", 1)
 if game.PlaceId == 18687417158 then --- 服务器id
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/NOL-%E4%BB%98%E8%B4%B9%E7%89%88%E6%9C%80%E6%96%B0%E6%BA%90%E7%A0%81.lua"))()---该服务器脚本
 
