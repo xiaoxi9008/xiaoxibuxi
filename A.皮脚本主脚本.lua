@@ -1,7 +1,7 @@
 game:GetService("StarterGui"):SetCore("SendNotification", {
   Title = "小西通用脚本",
   Text = "欢迎使用小西脚本",
-  Icon = "rbxassetid://83658046607003",
+  Icon = "rbxassetid://158118263",
   Duration = 1,
   Callback = bindable,
   Button1 = "脚本功能多多",
@@ -11,7 +11,7 @@ wait(1.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
   Title = "小西脚本",
   Text = "小西脚本 本脚本为免费 倒卖了和作者无关 ",
-  Icon = "rbxassetid://83658046607003",
+  Icon = "rbxassetid://158118263",
   Duration = 1,
   Callback = bindable,
   Button1 = "此脚本是永久免费的",
@@ -5152,7 +5152,7 @@ r156_0:Toggle("自动存活", "ToggleInfo", false, function(r0_85)
     local r1_85 = _G.autowinfarm
     if r1_85 == true then
       r1_85 = game.Players.LocalPlayer.Character.HumanoidRootPart
-      r1_85.CFrame = CFrame.new(-236, 180, 360, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+      r1_85.CFrame = CFrame.new(2.65, 903.70, -1889.43)
     end
   end
 end)
