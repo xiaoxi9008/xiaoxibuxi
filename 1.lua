@@ -1,186 +1,95 @@
-Players = cloneref(game:GetService("Players"))
-RunService = cloneref(game:GetService("RunService"))
-ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
-LocalPlayer = Players.LocalPlayer
-Character = LocalPlayer.Character
-Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
-HumanoidRootPart = Character and Character:FindFirstChild("HumanoidRootPart")
+if _G.XION_Script_Loaded then
+    _G.XION_Execution_Count = (_G.XION_Execution_Count or 0) + 1
+    return
+end
 
-LocalPlayer.CharacterAdded:Connect(function(char)
-	Character = char
-	HumanoidRootPart = char:WaitForChild("HumanoidRootPart")
-	Humanoid = char:WaitForChild("Humanoid")
-end)
-
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/454244513/WindUIFix/refs/heads/main/main.lua"))()
+_G.XION_Script_Loaded = true
+_G.XION_Execution_Count = 1
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "因为你检测到可执行看片UI",
+  Text = "正在启动UI",
+  Icon = "rbxassetid://123691280552142",
+  Duration = 1,
+  Callback = bindable,
+  Button1 = "谢谢使用",
+  Button2 = "😘",
+})
+wait(1.5)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "祝你玩得开心",
+  Text = "卡密：小西",
+  Icon = "rbxassetid://123691280552142",
+  Duration = 1,
+  Callback = bindable,
+  Button1 = "qq群：705378396",
+  Button2 = "作者qq：3574769415",
+})
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 local Window = WindUI:CreateWindow({
-	Title = "小西俄亥俄",
-	Author = "Ohio",
-    OpenButton = {
-		Title = "小西Ohio",
-		CornerRadius = UDim.new(0, 16),
-		StrokeThickness = 3,
-		Color = ColorSequence.new( -- gradient
-			Color3.fromHex("f9a8d4"),
-			Color3.fromHex("f9a8d4")
-		),
-		OnlyMobile = false,
-		Enabled = true,
-		Draggable = true,
-		Scale = 0.5,
-	},
+    Title = "私人UI",
+    Icon = "rbxassetid://123691280552142",
+    Author = "by小西制作",
+    AuthorImage = 90840643379863,
+    Folder = "CloudHub",
+    Size = UDim2.fromOffset(560, 360),
+    KeySystem = {
+        Key = { "我爱大司马", "小西", "宇星辰", "阵雨眉目" }, 
+        Note = "请输入卡密",
+        SaveKey = false,
+    },
+    Transparent = true,
+    Background = "video:https://raw.githubusercontent.com/xiaoxi9008/chesksks/refs/heads/main/video_260309_225716.mp4",
+    User = {
+            Enabled = true,
+            Callback = function()
+                WindUI:Notify({
+                    Title = "点击了自己",
+                    Content = "没什么", 
+                    Duration = 1,
+                    Icon = "4483362748"
+                })
+            end,
+            Anonymous = false
+        },
 })
 
-local Tab = Window:Tab({
-	Title = "暴力",
-})
-Tab:Select()
+Window:EditOpenButton(
+    {
+        Title = "爸爸",
+        Icon = "rbxassetid://123691280552142",
+        CornerRadius = UDim.new(0, 13),
+        StrokeThickness = 4,
+        Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(186, 19, 19)),ColorSequenceKeypoint.new(1, Color3.fromRGB(8, 60, 129))}),
+        Draggable = true
+    }
+)
 
-Tab:Paragraph({
-	Title = "官网 没油",
-	Desc = "官方qq群没油",
-})
-
-Tab:Paragraph({
-	Title = "此脚本为开源免费",
-	Desc = "如果你是购买的那么恭喜你被骗了",
-})
-
-Tab:Toggle({
-	Title = "阴间飞镖",
-	Callback = function(state)
-		bladeaura = state
-	end,
-})
-
-load = require(ReplicatedStorage.devv).load
-Signal = load("Signal")
-FireServer = Signal.FireServer
-InvokeServer = Signal.InvokeServer
-GUID = load("GUID")
-v3item = load("v3item")
-Raycast = load("Raycast")
-local inventory = v3item.inventory
-
-hackthrow = function(plr, itemname, itemguid, velocity, epos)
-	if plr ~= LocalPlayer then
-		return
-	end
-	task.spawn(function()
-		local throwGuid = GUID()
-		local success, stickyId =
-			InvokeServer("throwSticky", throwGuid, itemname, itemguid, velocity, epos)
-		if not success then
-			return
-		end
-		local dummyPart = Instance.new("Part")
-		dummyPart.Size = Vector3.new(2, 2, 2)
-		dummyPart.Position = epos
-		dummyPart.Anchored = true
-		dummyPart.Transparency = 1
-		dummyPart.CanCollide = true
-		dummyPart.Parent = workspace
-		local rayParams = RaycastParams.new()
-		rayParams.FilterType = Enum.RaycastFilterType.Blacklist
-		rayParams.FilterDescendantsInstances = { plr.Character, workspace.Game.Local, workspace.Game.Drones }
-		local dist = (epos - plr.Character.Head.Position).Magnitude
-		local rayResult = workspace:Raycast(
-			plr.Character.Head.Position,
-			(epos - plr.Character.Head.Position).Unit * (dist + 5),
-			rayParams
-		)
-		if rayResult and rayResult.Instance then
-			local hitPart = rayResult.Instance
-			local relativeHitCFrame =
-				hitPart.CFrame:ToObjectSpace(CFrame.new(rayResult.Position, rayResult.Position + rayResult.Normal))
-			local stickyCFrame = CFrame.new(rayResult.Position)
-			if dummyPart.Parent then
-				dummyPart:Destroy()
-			end
-			getgenv().throwargs = {
-				"hitSticky",
-				stickyId or throwGuid,
-				hitPart,
-				relativeHitCFrame,
-				stickyCFrame,
-			}
-			InvokeServer("hitSticky", stickyId or throwGuid, hitPart, relativeHitCFrame, stickyCFrame)
-		else
-			if dummyPart.Parent then
-				dummyPart:Destroy()
-			end
-		end
-	end)
+function Tab(a)
+    return Window:Tab({Title = a, Icon = "eye"})
 end
 
-getinventory = function()
-	return inventory.items
+function Button(a, b, c)
+    return a:Button({Title = b, Callback = c})
 end
 
-finditem = function(string)
-	for guid, data in next, getinventory() do
-		if data.name == string or data.type == string or data.subtype == string then
-			return data
-		end
-	end
+function Toggle(a, b, c, d)
+    return a:Toggle({Title = b, Value = c, Callback = d})
 end
 
-executebladekill = function(plr, head)
-	local item = finditem("Ninja Star")
-	if item then
-		FireServer("equip", item.guid)
-
-		if not getgenv().throwargs then
-			local spos = LocalPlayer.Character.RightHand.Position
-			local epos = head.Position
-			local velocity = (epos - spos).Unit * ((spos - epos).Magnitude * 15)
-			task.spawn(InvokeServer, "attemptPurchaseAmmo", "Ninja Star")
-			hackthrow(LocalPlayer, "Ninja Star", item.guid, velocity, epos)
-		end
-
-		if getgenv().throwargs then
-			getgenv().throwargs[3] = head
-			task.spawn(InvokeServer, unpack(getgenv().throwargs))
-		end
-	else
-		task.spawn(InvokeServer, "attemptPurchase", "Ninja Star")
-	end
+function Slider(a, b, c, d, e, f)
+    return a:Slider({Title = b, Step = 1, Value = {Min = c, Max = d, Default = e}, Callback = f})
 end
 
-RunService.Heartbeat:Connect(function()
-	if bladeaura and HumanoidRootPart then
-		for _, plr in ipairs(Players:GetPlayers()) do
-			if plr == LocalPlayer then
-				continue
-			end
-			local char = plr.Character
-			local hum = char and char:FindFirstChildOfClass("Humanoid")
-			local head = char and char:FindFirstChild("Head")
-			local dist = (HumanoidRootPart.Position - head.Position).Magnitude
-			if hum and hum.Health > 0 and head and dist < 190 then
-				executebladekill(plr, head)
-				break
-			end
-		end
-	end
-end)
+function Dropdown(a, b, c, d, e)
+    return a:Dropdown({Title = b, Values = c, Value = d, Callback = e})
+end
 
-local Tab = Window:Tab({
-	Title = "暴力",
-})
-Tab:Select()
-
-Tab:Paragraph({
-	Title = "官网 没",
-	Desc = "官方qq群没油",
-})
-
-Tab:Paragraph({
-	Title = "此脚本为开源免费",
-	Desc = "如果你是购买的那么恭喜你被骗了",
-})
-
-Tab:Toggle({
-	Title = '杀死全部',
-    Default = false,
-})
+function Input(a, b, c, d, e, f)
+    return a:Input({
+        Title = b,
+        Desc = c or "",
+        Value = d or "",
+        Placeholder = e or "",
+        Callback = f
+    })
+end
