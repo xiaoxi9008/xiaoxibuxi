@@ -314,23 +314,28 @@ elementSection:Slider({
 local teleportLoopEnabled = false
 local teleportThread = nil
 
+local teleportLoopEnabled = false
+local teleportThread = nil
+
 elementSection:Toggle({
     Title = "自动循环传送",
     Value = false,
     Callback = function(value)
         teleportLoopEnabled = value
         if value then
-            -- 启动传送循环
             teleportThread = task.spawn(function()
-                local p = game.Players.LocalPlayer
-                local c = p.Character or p.CharacterAdded:Wait()
-                local hrp = c:WaitForChild("HumanoidRootPart")
-                while teleportLoopEnabled and task.wait(3) do
-                    hrp.CFrame = CFrame.new(2.65, 903.70, -1889.43)
+                while teleportLoopEnabled do
+                    task.wait(1) -- 每3秒传送一次
+                    -- 每次循环都重新获取角色，防止重生失效
+                    local p = game.Players.LocalPlayer
+                    local c = p.Character or p.CharacterAdded:Wait()
+                    local hrp = c:WaitForChild("HumanoidRootPart")
+                    if hrp and hrp.Parent then -- 确保对象有效
+                        hrp.CFrame = CFrame.new(2.65, 903.70, -1889.43)
+                    end
                 end
             end)
         else
-            -- 停止传送循环
             if teleportThread then
                 task.cancel(teleportThread)
                 teleportThread = nil
