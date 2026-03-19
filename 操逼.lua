@@ -1,10 +1,3 @@
-if _G.XION_Script_Loaded then
-    _G.XION_Execution_Count = (_G.XION_Execution_Count or 0) + 1
-    return
-end
-
-_G.XION_Script_Loaded = true
-_G.XION_Execution_Count = 1
 game:GetService("StarterGui"):SetCore("SendNotification", {
   Title = "因为你检测到可执行看片UI",
   Text = "正在启动UI",
@@ -33,7 +26,7 @@ local Window = WindUI:CreateWindow({
     Folder = "CloudHub",
     Size = UDim2.fromOffset(560, 360),
     KeySystem = {
-        Key = { "我爱大司马", "小西", "宇星辰", "阵雨眉目" }, 
+        Key = { "我爱大司马", "小西", "柳叶操死你", "柳叶是扫比" }, 
         Note = "请输入卡密",
         SaveKey = false,
     },
@@ -108,56 +101,6 @@ Button(Tabjb, "1", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/xiaoxibuxi/refs/heads/main/1.lua"))() 
 end)
 
-Button(Tabjb, "终极战场", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/Kanl%E6%9C%80%E6%96%B0%E7%BB%88%E6%9E%81%E6%88%98%E5%9C%BA%E6%BA%90%E7%A0%81.lua"))() 
-end)
-
-Button(Tabjb, "偷走一粒红", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/%E5%81%B7%E8%B5%B0%E8%84%91%E7%BA%A2.lua"))() 
-end)
-
-Button(Tabjb, "自然灾害", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3.lua"))() 
-end)
-
-Button(Tabjb, "99个森林夜", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/99%E5%A4%9C.lua"))() 
-end)
-
-Button(Tabjb, "忍者传奇", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/%E5%BF%8D%E8%80%85%E4%BC%A0%E5%A5%87.lua"))()
-end)
-
-Button(Tabjb, "种植花园", function() 
-        Pikon_script = "by小西"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/%E7%A7%8D%E6%A4%8D%E8%8A%B1%E5%9B%AD.lua"))()
-end)
-
-Button(Tabjb, "被遗弃", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/%E8%A2%AB%E9%81%97%E5%BC%83.lua"))()
-end)
-
-Button(Tabjb, "doors", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/doors.lua"))()
-end)
-
-Button(Tabjb, "墨水", function() 
-        KG_SCRIPT = "卡密：小西nb"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/moshui.lua"))()
-end)
-
-Button(Tabjb, "OhioV3未完善", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/1.lua"))()
-end)
-
-Button(Tabjb, "OhioV2可以配的V3一起玩", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/SX%E4%BF%84%E4%BA%A5%E4%BF%84%E5%B7%9EV5%E6%BA%90%E7%A0%81(1).lua"))() 
-end)
-
-Button(Tabjb, "NOL老版本", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/NOL%E5%8A%A0%E8%BD%BD%E5%99%A8.lua"))()
-end)
-
-Button(Tabjb, "NOL提供的被遗弃Bug太多了", function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/Xiaoxi/refs/heads/main/NOL-%E4%BB%98%E8%B4%B9%E7%89%88%E6%9C%80%E6%96%B0%E6%BA%90%E7%A0%81.lua"))() 
+Button(Tabjb, "柳叶", function() 
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoxi9008/xiaoxibuxi/refs/heads/main/%E6%9F%B3%E5%8F%B6.lua"))() 
 end)
