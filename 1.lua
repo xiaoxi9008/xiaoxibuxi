@@ -1,10 +1,3 @@
-if _G.XION_Script_Loaded then
-    _G.XION_Execution_Count = (_G.XION_Execution_Count or 0) + 1
-    return
-end
-
-_G.XION_Script_Loaded = true
-_G.XION_Execution_Count = 1
 game:GetService("StarterGui"):SetCore("SendNotification", {
   Title = "因为你检测到可执行看片UI",
   Text = "正在启动UI",
