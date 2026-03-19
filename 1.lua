@@ -25,13 +25,7 @@ local Window = WindUI:CreateWindow({
     AuthorImage = 90840643379863,
     Folder = "CloudHub",
     Size = UDim2.fromOffset(560, 360),
-    KeySystem = {
-        Key = { "我爱大司马", "小西", "宇星辰", "阵雨眉目" }, 
-        Note = "请输入卡密",
-        SaveKey = false,
-    },
-    Transparent = true,
-    Background = "video:https://raw.githubusercontent.com/xiaoxi9008/chesksks/refs/heads/main/video_260309_225716.mp4",
+    Background = "video:https://raw.githubusercontent.com/xiaoxi9008/chesksks/refs/heads/main/Screenshot_2026-03-16-18-36-33-79_d3f16c36a4a81e12d8a165f183728802.jpg",
     User = {
             Enabled = true,
             Callback = function()
